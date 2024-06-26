@@ -31,6 +31,10 @@ router.post("/signup", userSignupMiddleware, async (req, res) => {
     res.status(200).json({
       message: "User created successfully",
       token: token,
+      username: user.username,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      userId: newUser._id
     });
   } catch (error) {
     res.status(401).json({
@@ -50,6 +54,10 @@ router.post("/signin", userSigninMiddleware, async (req, res) => {
       res.status(200).json({
         message: "User signin successfull",
         token: token,
+        username: user.username,
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
+        userId: newUser._id
       });
     });
   } catch (error) {
